@@ -13,7 +13,7 @@ export default function ProfileCard() {
 
   return (
     <div style={{
-      maxWidth: "450px",
+      maxWidth:"400px",
       background: "#fff",
       padding: "25px",
       borderRadius: "12px",

@@ -28,6 +28,9 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
+        <footer className="text-center py-4 text-white bg-amber-800 text-sm sm:text-base">
+          copyright © 2025 ALLFENG by YEKINI Koubourath.
+        </footer>
       </body>
     </html>
   );

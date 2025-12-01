@@ -1,6 +1,7 @@
-"use client";
+ "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import Userview from "./components/Userview";
 import { FaMusic, FaPlayCircle, FaCheckCircle } from "react-icons/fa";
 
@@ -36,8 +37,8 @@ export default function Page() {
       {/* ================= HERO ================= */}
       <div className="bg-amber-800">
         <div className="text-center pt-16 pb-6 px-4 sm:px-6 md:px-20">
-          <h1 className="chocolate-font font-black mb-5 text-3xl sm:text-4xl md:text-5xl text-yellow-600 leading-tight">
-            APPRENEZ L'ANGLAIS EN VOUS AMUSANT
+          <h1 className="chocolate-font font-black mb-5 text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+            APPRENEZ L&apos;ANGLAIS EN VOUS AMUSANT
           </h1>
 
           <p className="mb-5 text-white text-base sm:text-lg md:text-xl max-w-3xl mx-auto">
@@ -45,9 +46,9 @@ export default function Page() {
             préférées, des vidéos inspirantes et des quiz amusants.
           </p>
 
-          <button className="bg-yellow-600 text-white px-5 py-3 rounded-full hover:bg-amber-950 transition-colors text-base sm:text-lg">
-            Commencez votre essai gratuit
-          </button>
+          <Link href="/quiz" className="bg-yellow-600 text-white px-5 py-3 rounded-full hover:bg-amber-950 transition-colors text-base sm:text-lg">
+            Commencez tout de suite
+          </Link>
         </div>
       </div>
 
@@ -78,16 +79,12 @@ export default function Page() {
           Prêt à libérer votre potentiel en anglais ?
         </h1>
         <p className="text-base sm:text-lg">
-          Rejoignez-nous pour maîtriser l'anglais grâce au contenu que nous aimons.
+          Rejoignez-nous pour maîtriser l&apos;anglais grâce au contenu que nous aimons.
         </p>
         <div className="mb-5 text-lg sm:text-2xl md:text-4xl text-yellow-600 rounded mt-5 inline-block px-4 py-2">
           Inscrivez-vous et commencez à apprendre
         </div>
-      </div>
-
-      <footer className="text-center py-4 text-white bg-amber-800 text-sm sm:text-base">
-        copyright © 2025 ALLFENG
-      </footer>
+        </div>
     </Userview>
   );
 }
