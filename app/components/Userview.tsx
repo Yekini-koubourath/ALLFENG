@@ -5,13 +5,12 @@ import Navbar from "./Navbar";
 type UserviewProps = {
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties; // <-- ajouté pour supporter style inline
 };
 
 // ✅ Composant fonctionnel Userview
-const Userview = ({ children, className, style }: UserviewProps) => {
+const Userview = ({ children, className }: UserviewProps) => {
   return (
-    <div className={className ?? ""} style={style}>
+    <div className={className ?? ""}>
       {/* Navbar commune à toutes les pages utilisant Userview */}
       <Navbar />
       {/* Contenu spécifique à chaque page */}
