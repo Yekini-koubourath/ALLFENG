@@ -1,22 +1,22 @@
 import React from "react";
 import Navbar from "./Navbar";
 
-// ✅ Définition du type des props
+// ✅ Définition des props
 type UserviewProps = {
   children: React.ReactNode;
   className?: string;
+  style?: React.CSSProperties; // 👈 ajout ici
 };
 
-// ✅ Composant fonctionnel Userview
-const Userview = ({ children, className }: UserviewProps) => {
+// 🚀 Composant Userview
+const Userview = ({ children, className, style }: UserviewProps) => {
   return (
-    <div className={className ?? ""}>
-      {/* Navbar commune à toutes les pages utilisant Userview */}
+    <div className={className ?? ""} style={style}>  {/* 👈 ajout ici */}
       <Navbar />
-      {/* Contenu spécifique à chaque page */}
       <main>{children}</main>
     </div>
   );
 };
 
 export default Userview;
+
