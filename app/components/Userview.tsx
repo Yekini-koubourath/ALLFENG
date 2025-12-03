@@ -1,22 +1,32 @@
 import React from "react";
 import Navbar from "./Navbar";
+import Footer from "./Footer";
 
-// ✅ Définition des props
+// Définition des props
 type UserviewProps = {
   children: React.ReactNode;
   className?: string;
-  style?: React.CSSProperties; // 👈 ajout ici
 };
 
-// 🚀 Composant Userview
-const Userview = ({ children, className, style }: UserviewProps) => {
+const Userview = ({ children, className }: UserviewProps) => {
   return (
-    <div className={className ?? ""} style={style}>  {/* 👈 ajout ici */}
+    // Structure Flex pour forcer le footer en bas
+    <div className={`min-h-screen flex flex-col ${className ?? ""}`}>
+      
+      {/* Header */}
       <Navbar />
-      <main>{children}</main>
+
+      {/* Contenu qui prend tout l’espace disponible */}
+      <main className="flex-grow">
+        {children}
+      </main>
+
+      {/* Footer en bas */}
+      <Footer />
     </div>
   );
 };
 
 export default Userview;
+
 

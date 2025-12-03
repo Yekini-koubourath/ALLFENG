@@ -13,13 +13,13 @@ export default function HelpPage() {
     <Userview>
       <div className="justify-center flex items-center flex-col p-8 max-w-4xl mx-auto space-y-8">
         {/* Titre */}
-        <h1 className="text-4xl font-bold text-purple-600 mb-6 flex items-center gap-3">
+        <h1 className="text-4xl font-bold text-amber-600 mb-6 flex items-center gap-3">
           <FaQuestionCircle /> Aide & Support
         </h1>
 
         {/* Section 1 */}
         <section className="mb-8 bg-white p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-purple-500">
+          <h2 className="text-2xl font-semibold mb-4 text-amber-500">
             Comment fonctionne le quiz ?
           </h2>
           <ul className="list-disc ml-6 space-y-2 text-gray-700">
@@ -33,7 +33,7 @@ export default function HelpPage() {
 
         {/* Section 2 */}
         <section className="mb-8 bg-white p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-purple-500 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-4 text-amber-500 flex items-center gap-2">
             <FaUser /> Gestion du profil
           </h2>
           <p className="text-gray-700">
@@ -49,19 +49,19 @@ export default function HelpPage() {
 
         {/* Section 3 */}
         <section className="mb-8 bg-white p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-purple-500 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-4 text-amber-500 flex items-center gap-2">
             <FaBook /> Page Lyrics
           </h2>
           <p className="text-gray-700">
             Dans la page <strong>Lyrics</strong>, tu peux regarder des vidéos
-            YouTube et lire les paroles en anglais et français pour apprendre
+            YouTube et lire les paroles en anglais pour apprendre
             plus facilement avec la musique.
           </p>
         </section>
 
         {/* Section 4 */}
         <section className="mb-8 bg-white p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold mb-4 text-purple-500 flex items-center gap-2">
+          <h2 className="text-2xl font-semibold mb-4 text-amber-500 flex items-center gap-2">
             <FaGamepad /> Problèmes fréquents
           </h2>
           <ul className="list-disc ml-6 mt-2 space-y-2 text-gray-700">
@@ -79,25 +79,6 @@ export default function HelpPage() {
           </ul>
         </section>
 
-        {/* Section Contact */}
-        <section className="bg-purple-100 border-l-4 border-purple-500 p-6 rounded-lg shadow">
-          <h2 className="text-2xl font-semibold mb-4 flex items-center gap-2 text-purple-600">
-            <FaEnvelope /> Besoin d’aide supplémentaire ?
-          </h2>
-          <p className="text-gray-700 mb-4">Tu peux me contacter :</p>
-
-          <div className="space-y-2 text-gray-700">
-            <p>
-              <strong>Email :</strong> support@allfeng.com
-            </p>
-            <p>
-              <strong>Discord :</strong> ALLFENG#2025
-            </p>
-            <p>
-              <strong>FAQ :</strong> bientôt disponible
-            </p>
-          </div>
-        </section>
       </div>
     </Userview>
   );

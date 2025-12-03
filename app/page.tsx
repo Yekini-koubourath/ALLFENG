@@ -84,7 +84,7 @@ export default function Page() {
         <div className="mb-5 text-lg sm:text-2xl md:text-4xl text-yellow-600 rounded mt-5 inline-block px-4 py-2">
           Inscrivez-vous et commencez à apprendre
         </div>
-        </div>
+      </div>
     </Userview>
   );
 }

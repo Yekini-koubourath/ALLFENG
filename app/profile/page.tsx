@@ -3,9 +3,7 @@ import Userview from "../components/Userview";
 
 export default function ProfilePage() {
   return (
-    <Userview style={{ 
-      padding: "40px",
-    }}>
+    <Userview>
       <ProfileCard />
     </Userview>
   );
