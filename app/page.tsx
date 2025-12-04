@@ -37,7 +37,7 @@ export default function Page() {
       {/* ================= HERO ================= */}
       <div className="bg-amber-800">
         <div className="text-center pt-16 pb-6 px-4 sm:px-6 md:px-20">
-          <h1 className="chocolate-font font-black mb-5 text-3xl sm:text-4xl md:text-5xl text-white leading-tight">
+          <h1 className="chocolate-font font-black mb-5 text-xl sm:text-xl md:text-5xl text-white leading-tight">
             APPRENEZ L&apos;ANGLAIS EN VOUS AMUSANT
           </h1>
 
@@ -53,11 +53,11 @@ export default function Page() {
       </div>
 
       {/* ================= SUBHEADING ================= */}
-      <p className="chocolate-font text-center font-black mt-8 sm:mt-10 text-2xl sm:text-3xl md:text-4xl text-yellow-600 px-4 sm:px-6 md:px-20">
+      <p className="chocolate-font text-center font-black mt-8 sm:mt-10 text-2xl sm:text-3xl md:text-4xl text-yellow-600 px-6 sm:px-6 md:px-20">
         UNE NOUVELLE FAÇON D'APPRENDRE
       </p>
 
-      <p className="text-center px-4 sm:px-6 md:px-20 mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
+      <p className="text-center px-6 sm:px-6 md:px-20 mt-2 text-sm sm:text-base md:text-lg max-w-3xl mx-auto">
         Explorez des contenus qui vous passionnent et constatez une nette <br className="hidden md:block" />
         amélioration de votre anglais. Notre méthode repose sur trois piliers <br className="hidden md:block" />
         fondamentaux pour un apprentissage à la fois efficace et agréable

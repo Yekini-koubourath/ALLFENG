@@ -213,7 +213,7 @@ export default function QuizPage() {
           </div>
         ) : (
           currentQuestionObj && (
-            <div className="flex flex-col gap-4 w-full max-w-md">
+            <div className="flex flex-col gap-4 max-w-md">
               <h2 className="chocolate-font text-xl font-semibold">{currentQuestionObj.question}</h2>
               {currentQuestionObj.options.map((option, idx) => {
                 let bgColor = "bg-amber-600 hover:bg-amber-800";

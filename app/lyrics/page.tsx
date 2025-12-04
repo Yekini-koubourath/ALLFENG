@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Userview from "../components/Userview";
 
-export default function LyricsPage() {
+export default function Page() {
   const [loadedCount, setLoadedCount] = useState(0);
 
   const videoUrls = [
@@ -42,64 +42,54 @@ export default function LyricsPage() {
     "https://www.youtube.com/embed/0Y6Om-xYC0k",
   ];
 
-  const handleIframeLoad = () => {
-    setLoadedCount((prev) => prev + 1);
-  };
+  const handleIframeLoad = () => setLoadedCount((c) => c + 1);
+
+  const progress = Math.round((loadedCount / videoUrls.length) * 100);
 
   return (
     <Userview>
-      <h1 className="flex text-amber-500 mb-10 mt-6 ms-27 font-bold text-5xl justify-center">
+      <h1 className="flex bg-amber-800 text-white mb-10 w-full font-bold text-5xl justify-center p-5">
         English Lyrics
       </h1>
 
-      {/* Loader animé */}
+      {/* LOADER */}
       {loadedCount < videoUrls.length && (
         <div className="flex flex-col justify-center items-center h-64">
-          <div className="loader border-4 border-amber-500 border-t-transparent rounded-full w-16 h-16 animate-spin mb-4"></div>
-          <div className="text-lg font-semibold text-amber-500">
-            Chargement... ({loadedCount}/{videoUrls.length})
+          {/* Points */}
+          <div className="flex space-x-2 mb-4">
+            <div className="w-4 h-4 rounded-full bg-amber-500 animate-bounce"></div>
+            <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></div>
+            <div className="w-4 h-4 rounded-full bg-amber-300 animate-bounce [animation-delay:0.4s]"></div>
           </div>
+
+          <p className="text-lg font-semibold text-amber-500">
+            Chargement... {progress}%
+          </p>
+
+          <p className="text-sm text-amber-400 mt-1">
+            {loadedCount} / {videoUrls.length} vidéos
+          </p>
         </div>
       )}
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 ms-3">
-        {videoUrls.map((url, index) => (
-          <div key={index} className="mb-5">
+      {/* GRID + FLOU */}
+      <div
+        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-10 transition-all ${
+          loadedCount < videoUrls.length ? "blur-sm pointer-events-none" : ""
+        }`}
+      >
+        {videoUrls.map((url, i) => (
+          <div key={i} className="mb-5">
             <iframe
               width="450"
               height="315"
               src={url}
-              frameBorder="0"
-              title={`YouTube video ${index + 1}`}
-              allowFullScreen
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
               onLoad={handleIframeLoad}
+              className="rounded-lg shadow-md w-full"
             ></iframe>
           </div>
         ))}
       </div>
-
-      {/* Styles du spinner */}
-      <style jsx>{`
-        .loader {
-          border-width: 4px;
-          border-style: solid;
-          border-color: #f59e0b transparent transparent transparent; /* ambre et transparent */
-          border-radius: 50%;
-          width: 64px;
-          height: 64px;
-          animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-      `}</style>
     </Userview>
   );
 }
