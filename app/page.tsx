@@ -36,7 +36,7 @@ export default function Page() {
     <Userview className="min-h-screen">
       {/* ================= HERO ================= */}
       <div className="bg-amber-800">
-        <div className="text-center px-4 sm:px-6 md:px-20">
+        <div className="text-center pt-16 pb-6 px-4 sm:px-6 md:px-20">
           <h1 className="chocolate-font font-black mb-5 text-xl sm:text-xl md:text-5xl text-white leading-tight">
             APPRENEZ L&apos;ANGLAIS EN VOUS AMUSANT
           </h1>
