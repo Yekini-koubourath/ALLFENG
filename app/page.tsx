@@ -36,7 +36,7 @@ export default function Page() {
     <Userview className="min-h-screen">
       {/* ================= HERO ================= */}
       <div className="bg-amber-800">
-        <div className="text-center pt-16 pb-6 px-4 sm:px-6 md:px-20">
+        <div className="text-center pt-16 pb-10 px-4 sm:px-6 md:px-20">
           <h1 className="chocolate-font font-black mb-5 text-xl sm:text-xl md:text-5xl text-white leading-tight">
             APPRENEZ L&apos;ANGLAIS EN VOUS AMUSANT
           </h1>
@@ -46,7 +46,7 @@ export default function Page() {
             préférées, des vidéos inspirantes et des quiz amusants.
           </p>
 
-          <Link href="/quiz" className="bg-yellow-600 text-white px-5 py-3 rounded-full hover:bg-amber-950 transition-colors text-base sm:text-lg">
+          <Link href="/quiz" className="bg-yellow-600 text-white px-5 py-3 rounded-full hover:bg-amber-950 transition-colors text-base sm:text-lg ">
             Commencez tout de suite
           </Link>
         </div>

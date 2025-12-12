@@ -23,8 +23,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
-        <Chatbot />
+              <Chatbot /> {/* rendu immédiat sur toutes les pages */}
       </body>
     </html>
   );
 }
+
