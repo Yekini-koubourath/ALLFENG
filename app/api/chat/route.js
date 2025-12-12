@@ -4,7 +4,6 @@ export const runtime = "edge";
 
 const client = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
-  project: process.env.OPENAI_PROJECT_ID,
 });
 
 export async function POST(req) {
@@ -20,4 +19,3 @@ export async function POST(req) {
     { status: 200 }
   );
 }
-
