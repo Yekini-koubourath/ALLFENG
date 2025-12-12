@@ -13,14 +13,20 @@ export default function DonatePage() {
       <main className="flex-grow flex items-center justify-center mt-24">
         <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-6 text-center">
           <h1 className="text-3xl font-bold text-amber-700 mb-4">
-            Soutenez mon projet de Quiz 🎓
+            Soutenez mon projet 🎓
           </h1>
 
           <p className="text-gray-700 mb-6">
-            Bonjour ! Je suis stagiaire en informatique et étudiante en anglais.
-            J’ai créé un projet de Quiz interactif pour apprendre en s’amusant.
-            Si mon travail vous plaît, vous pouvez m’encourager avec un petit
-            don ❤️.
+           Vous aimez le projet et souhaitez contribuer à son évolution ?
+Votre don nous aide à :
+
+Ajouter de nouvelles fonctionnalités et contenus.
+
+Maintenir le site et garantir une expérience fluide.
+
+Inspirer et motiver toujours plus d’apprenants.
+
+💛 Chaque contribution, petite ou grande, fait la différence !
           </p>
 
           <div className="flex justify-center">
@@ -38,6 +44,7 @@ export default function DonatePage() {
             En cliquant sur le bouton, vous serez redirigé vers FedaPay pour
             finaliser votre paiement.
           </p>
+          <p>Merci pour votre soutien !</p>
         </div>
       </main>
 

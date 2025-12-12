@@ -18,7 +18,7 @@ const Navbar = () => {
     // { name: "typing", href:"/typing"},
     { name: "Profile", href: "/profile" },
     { name: "Aide", href: "/aide" },
-    { name:"don", href:"/don"},
+    { name:"Don", href:"/Don"},
   ];
 
   return (
