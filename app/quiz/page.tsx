@@ -148,6 +148,106 @@ const questions: Question[] = shuffleArray([
 { question: "What is the opposite of 'happy'?", options: ["sad", "joyful", "excited", "content"], answer: 0 },
 { question: "Choose the correct preposition: The flowers are ___ the vase.", options: ["in", "on", "at", "for"], answer: 0 },
 { question: "What is the comparative form of 'easy'?", options: ["easiest", "more easy", "easier", "most easy"], answer: 2 },
+{ question: "What is the past tense of 'go'?", options: ["Goed", "Went", "Gone", "Go" ], answer: 1 },
+{ question: "Which word is a synonym of 'happy'?", options: ["Sad", "Angry", "Joyful", "Tired"], answer: "Joyful"},
+{ question: "What is the opposite of 'big'?", options: ["Large", "Huge", "Small", "Tall"], answer: "Small"},
+{ question: "Which one is a fruit?",options: ["Carrot", "Banana", "Potato", "Broccoli"],answer: "Banana"},
+  {
+    question: "How do you say 'chat' in English?",
+    options: ["Dog", "Cat", "Bird", "Mouse"],
+    answer: "Cat"
+  },
+  {
+    question: "Complete the sentence: 'I _____ to school every day.'",
+    options: ["go", "goes", "going", "gone"],
+    answer: "go"
+  },
+  {
+    question: "Which is a verb?",
+    options: ["Run", "Blue", "House", "Quick"],
+    answer: "Run"
+  },
+  {
+    question: "Which sentence is correct?",
+    options: [
+      "He are a teacher.",
+      "He is a teacher.",
+      "He am a teacher.",
+      "He be a teacher."
+    ],
+    answer: "He is a teacher."
+  },
+  {
+    question: "What is the plural of 'child'?",
+    options: ["Childs", "Children", "Childes", "Childrens"],
+    answer: "Children"
+  },
+  {
+    question: "Which word is an adjective?",
+    options: ["Beautiful", "Run", "Table", "Quickly"],
+    answer: "Beautiful"
+  },
+  {
+    question: "What does 'fast' mean?",
+    options: ["Slow", "Quick", "Late", "Heavy"],
+    answer: "Quick"
+  },
+  {
+    question: "Which one is a color?",
+    options: ["Blue", "Soft", "Jump", "Desk"],
+    answer: "Blue"
+  },
+  {
+    question: "Choose the correct article: 'I want ___ apple.'",
+    options: ["a", "an", "the", "none"],
+    answer: "an"
+  },
+  {
+    question: "What is the meaning of 'walk'?",
+    options: ["To eat", "To sleep", "To move on foot", "To think"],
+    answer: "To move on foot"
+  },
+  {
+    question: "Which is a correct question?",
+    options: [
+      "You are okay?",
+      "Are you okay?",
+      "Okay you are?",
+      "You okay are?"
+    ],
+    answer: "Are you okay?"
+  },
+  {
+    question: "Which word is a noun?",
+    options: ["Happiness", "Running", "Quick", "Slowly"],
+    answer: "Happiness"
+  },
+  {
+    question: "What is the opposite of 'cold'?",
+    options: ["Cool", "Hot", "Warm", "Freeze"],
+    answer: "Hot"
+  },
+  {
+    question: "Which sentence uses the correct verb tense?",
+    options: [
+      "I will went tomorrow.",
+      "I go yesterday.",
+      "I went yesterday.",
+      "I going yesterday."
+    ],
+    answer: "I went yesterday."
+  },
+  {
+    question: "Which word is a preposition?",
+    options: ["Under", "Jump", "Smile", "Happy"],
+    answer: "Under"
+  },
+  {
+    question: "What is the meaning of 'learn'?",
+    options: ["To forget", "To understand new things", "To sleep", "To run fast"],
+    answer: "To understand new things"
+  }
+
   // ... toutes les autres questions
 ]);
 
@@ -233,6 +333,7 @@ export default function QuizPage() {
                 );
               })}
             </div>
+            // <Chatbot /> 
           )
         )}
       </div>

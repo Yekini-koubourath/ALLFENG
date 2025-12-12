@@ -35,7 +35,6 @@ export default function ProfileCard() {
 
       {/* Bio */}
       <p className="mt-4 text-gray-600 leading-relaxed text-base">{profile.bio}</p>
-      
     
     </div>
   );

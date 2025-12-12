@@ -27,7 +27,7 @@ export default function Page() {
 
   return (
     <Userview>
-      <h1 className="text-amber-500 font-bold text-5xl m-10 flex justify-center">
+      <h1 className="bg-amber-800 font-bold text-5xl flex justify-center text-white p-5">
         Motivations Lyrics
       </h1>
 
@@ -71,7 +71,7 @@ export default function Page() {
 
           </div>
         ))}
-      </div>
+      </div> 
     </Userview>
   );
 }

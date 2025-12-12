@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import Userview from "./components/Userview";
-import { FaMusic, FaPlayCircle, FaCheckCircle } from "react-icons/fa";
+import { FaMusic, FaPlayCircle, FaCheckCircle } from "react-icons/fa"
 
 export default function Page() {
   const [isOpen, setIsOpen] = useState(false);
