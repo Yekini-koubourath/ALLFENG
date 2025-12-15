@@ -15,10 +15,9 @@ const Navbar = () => {
     { name: "Quiz", href: "/quiz" },
     { name: "Lyrics", href: "/lyrics" },
     { name: "Motivation", href: "/motivation" },
-    // { name: "typing", href:"/typing"},
     { name: "Profile", href: "/profile" },
     { name: "Aide", href: "/aide" },
-    { name:"Don", href:"/Don"},
+    { name:"Don", href:"/don"},
   ];
 
   return (
