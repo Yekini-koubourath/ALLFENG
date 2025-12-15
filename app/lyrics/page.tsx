@@ -38,10 +38,8 @@ export default function Page() {
     "https://www.youtube.com/embed/ErGZkggRgaw",
     "https://www.youtube.com/embed/SqBHVlQUqQk",
     "https://www.youtube.com/embed/0Y6Om-xYC0k",
-    // …
   ];
 
-  // ✅ TYPES AJOUTÉS
   const [visibleVideos, setVisibleVideos] = useState<number[]>([]);
   const refs = useRef<(HTMLDivElement | null)[]>([]);
 
@@ -50,13 +48,14 @@ export default function Page() {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // ✅ CORRECTION CRITIQUE ICI
             const target = entry.target as HTMLElement;
             const index = Number(target.dataset.index);
 
             setVisibleVideos((prev) =>
               prev.includes(index) ? prev : [...prev, index]
             );
+
+            observer.unobserve(target); // libère l'observation pour éviter les recalculs
           }
         });
       },
@@ -80,7 +79,7 @@ export default function Page() {
         {videoUrls.map((url, i) => (
           <div
             key={i}
-            ref={(el) => (refs.current[i] = el)}
+            ref={(el) => { refs.current[i] = el }} // ✅ fonction retourne void
             data-index={i}
             className="min-h-[315px]"
           >
