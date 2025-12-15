@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Userview from "../components/Userview";
 
 export default function Page() {
@@ -19,11 +19,31 @@ export default function Page() {
     "https://www.youtube.com/embed/AjxbqKcPX_4",
   ];
 
-  const [loadedCount, setLoadedCount] = useState(0);
+  const [visibleVideos, setVisibleVideos] = useState([]);
+  const refs = useRef([]);
 
-  const handleIframeLoad = () => setLoadedCount((c) => c + 1);
+  // IntersectionObserver pour charger au scroll
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleVideos((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
+          }
+        });
+      },
+      { rootMargin: "200px" }
+    );
 
-  const progress = Math.round((loadedCount / videoUrls.length) * 100);
+    refs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Userview>
@@ -31,47 +51,30 @@ export default function Page() {
         Motivations Lyrics
       </h1>
 
-      {/* LOADER AVEC POURCENTAGE */}
-      {loadedCount < videoUrls.length && (
-        <div className="flex flex-col justify-center items-center h-64">
-          {/* 3 points animés */}
-          <div className="flex space-x-2 mb-4">
-            <div className="w-4 h-4 rounded-full bg-amber-500 animate-bounce"></div>
-            <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></div>
-            <div className="w-4 h-4 rounded-full bg-amber-300 animate-bounce [animation-delay:0.4s]"></div>
-          </div>
-
-          {/* POURCENTAGE */}
-          <p className="text-lg font-semibold text-amber-600">
-            Chargement... {progress}%
-          </p>
-
-          {/* Détail */}
-          <p className="text-sm text-amber-500 mt-1">
-            {loadedCount} / {videoUrls.length} vidéos
-          </p>
-        </div>
-      )}
-
-      {/* GRID AVEC FLOU */}
-      <div
-        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-7 transition-all ${
-          loadedCount < videoUrls.length ? "blur-sm pointer-events-none" : ""
-        }`}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-7">
         {videoUrls.map((url, index) => (
-          <div key={index}>
-            <iframe
-              width="450"
-              height="315"
-              src={url}
-              onLoad={handleIframeLoad}
-              className="rounded-lg shadow-md w-full"
-            ></iframe>
-
+          <div
+            key={index}
+            ref={(el) => (refs.current[index] = el)}
+            data-index={index}
+            className="mb-5 min-h-[315px] relative"
+          >
+            {visibleVideos.includes(index) ? (
+              <iframe
+                width="450"
+                height="315"
+                src={url}
+                className="rounded-lg shadow-md w-full"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                Chargement...
+              </div>
+            )}
           </div>
         ))}
-      </div> 
+      </div>
     </Userview>
   );
 }

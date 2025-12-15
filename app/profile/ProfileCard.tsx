@@ -12,7 +12,7 @@ export default function ProfileCard() {
     email: "yekinikoubou@gmail.com",
     discord: "ALLFENG#2025",
     tel: "+229 01 50 49 58 32",
-    bio: "Passionnée par les quiz et toujours prête à apprendre quelque chose de nouveau. J’aime relever des défis, découvrir des faits insolites et tester mes connaissances. Curieuse, souriante et motivée, je suis là pour s’amuser tout en me dépassant !",
+    bio: "Passionnée par la langue anglaise et toujours prête à apprendre quelque chose de nouveau. J’aime relever des défis, découvrir des faits insolites et tester mes connaissances. Curieuse, souriante et motivée, je suis là pour s’amuser tout en me dépassant !",
   });
 
   return (

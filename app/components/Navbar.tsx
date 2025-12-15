@@ -16,7 +16,6 @@ const Navbar = () => {
     { name: "Lyrics", href: "/lyrics" },
     { name: "Motivation", href: "/motivation" },
     { name: "Profile", href: "/profile" },
-    { name: "Aide", href: "/aide" },
     { name:"Don", href:"/don"},
   ];
 
@@ -24,15 +23,16 @@ const Navbar = () => {
     <nav className="bg-amber-800 bg-[url('/images/grid.svg')] bg-repeat p-4 flex flex-col md:flex-row items-center justify-between relative">
       {/* Logo + Titre */}
       <div className="flex items-center gap-3 w-full md:w-auto justify-between">
-        <div className="relative w-22 h-12">
+        <div className="relative w-22 h-15">
           <Image
-            src="/images/logo-quiz.jpg"
+            src="/images/logo.png
+            "
             alt="ALLFENG"
             fill
             className="object-cover"
           />
         </div>
-        <span className="font-bold text-xl text-white hidden md:inline">ALLFENG</span>
+        {/* <span className="font-bold text-xl text-white hidden md:inline">ALLFENG</span> */}
 
         {/* Burger button mobile */}
         <button

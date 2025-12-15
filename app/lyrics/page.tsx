@@ -1,11 +1,9 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import Userview from "../components/Userview";
 
 export default function Page() {
-  const [loadedCount, setLoadedCount] = useState(0);
-
   const videoUrls = [
     "https://www.youtube.com/embed/P0Qa3duVhOs",
     "https://www.youtube.com/embed/GgASxM_Ju_c",
@@ -40,11 +38,33 @@ export default function Page() {
     "https://www.youtube.com/embed/ErGZkggRgaw",
     "https://www.youtube.com/embed/SqBHVlQUqQk",
     "https://www.youtube.com/embed/0Y6Om-xYC0k",
+    // ... toutes tes autres vidéos
   ];
 
-  const handleIframeLoad = () => setLoadedCount((c) => c + 1);
+  const [visibleVideos, setVisibleVideos] = useState([]);
+  const refs = useRef([]);
 
-  const progress = Math.round((loadedCount / videoUrls.length) * 100);
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const index = Number(entry.target.dataset.index);
+            setVisibleVideos((prev) =>
+              prev.includes(index) ? prev : [...prev, index]
+            );
+          }
+        });
+      },
+      { rootMargin: "200px" } // commence à charger un peu avant l'affichage
+    );
+
+    refs.current.forEach((ref) => {
+      if (ref) observer.observe(ref);
+    });
+
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <Userview>
@@ -52,42 +72,28 @@ export default function Page() {
         English Lyrics
       </h1>
 
-      {/* LOADER */}
-      {loadedCount < videoUrls.length && (
-        <div className="flex flex-col justify-center items-center h-64">
-          {/* Points */}
-          <div className="flex space-x-2 mb-4">
-            <div className="w-4 h-4 rounded-full bg-amber-500 animate-bounce"></div>
-            <div className="w-4 h-4 rounded-full bg-amber-400 animate-bounce [animation-delay:0.2s]"></div>
-            <div className="w-4 h-4 rounded-full bg-amber-300 animate-bounce [animation-delay:0.4s]"></div>
-          </div>
-
-          <p className="text-lg font-semibold text-amber-500">
-            Chargement... {progress}%
-          </p>
-
-          <p className="text-sm text-amber-400 mt-1">
-            {loadedCount} / {videoUrls.length} vidéos
-          </p>
-        </div>
-      )}
-
-      {/* GRID + FLOU */}
-      <div
-        className={`grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-10 transition-all ${
-          loadedCount < videoUrls.length ? "blur-sm pointer-events-none" : ""
-        }`}
-      >
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-10">
         {videoUrls.map((url, i) => (
-          <div key={i} className="mb-5">
-            <iframe
-              width="450"
-              height="315"
-              src={url}
-              onLoad={handleIframeLoad}
-              className="rounded-lg shadow-md w-full"
-            ></iframe>
-          </div> 
+          <div
+            key={i}
+            className="mb-5 min-h-[315px] relative"
+            ref={(el) => (refs.current[i] = el)}
+            data-index={i}
+          >
+            {visibleVideos.includes(i) ? (
+              <iframe
+                width="450"
+                height="315"
+                src={url}
+                className="rounded-lg shadow-md w-full"
+                allowFullScreen
+              ></iframe>
+            ) : (
+              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+                Chargement...
+              </div>
+            )}
+          </div>
         ))}
       </div>
     </Userview>
