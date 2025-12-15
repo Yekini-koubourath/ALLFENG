@@ -4,7 +4,7 @@ import React, { useState, useRef, useEffect } from "react";
 import Userview from "../components/Userview";
 
 export default function Page() {
-  const videoUrls = [
+  const videoUrls: string[] = [
     "https://www.youtube.com/embed/P0Qa3duVhOs",
     "https://www.youtube.com/embed/GgASxM_Ju_c",
     "https://www.youtube.com/embed/2rr_mS_Lpo0",
@@ -38,25 +38,29 @@ export default function Page() {
     "https://www.youtube.com/embed/ErGZkggRgaw",
     "https://www.youtube.com/embed/SqBHVlQUqQk",
     "https://www.youtube.com/embed/0Y6Om-xYC0k",
-    // ... toutes tes autres vidéos
+    // …
   ];
 
-  const [visibleVideos, setVisibleVideos] = useState([]);
-  const refs = useRef([]);
+  // ✅ TYPES AJOUTÉS
+  const [visibleVideos, setVisibleVideos] = useState<number[]>([]);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
+            // ✅ CORRECTION CRITIQUE ICI
+            const target = entry.target as HTMLElement;
+            const index = Number(target.dataset.index);
+
             setVisibleVideos((prev) =>
               prev.includes(index) ? prev : [...prev, index]
             );
           }
         });
       },
-      { rootMargin: "200px" } // commence à charger un peu avant l'affichage
+      { rootMargin: "200px" }
     );
 
     refs.current.forEach((ref) => {
@@ -68,7 +72,7 @@ export default function Page() {
 
   return (
     <Userview>
-      <h1 className="flex bg-amber-800 text-white mb-10 w-full font-bold text-5xl justify-center p-5">
+      <h1 className="bg-amber-800 text-white text-5xl font-bold text-center p-5 mb-10">
         English Lyrics
       </h1>
 
@@ -76,20 +80,21 @@ export default function Page() {
         {videoUrls.map((url, i) => (
           <div
             key={i}
-            className="mb-5 min-h-[315px] relative"
             ref={(el) => (refs.current[i] = el)}
             data-index={i}
+            className="min-h-[315px]"
           >
             {visibleVideos.includes(i) ? (
               <iframe
-                width="450"
-                height="315"
                 src={url}
-                className="rounded-lg shadow-md w-full"
+                width="100%"
+                height="315"
+                className="rounded-lg shadow-md"
+                loading="lazy"
                 allowFullScreen
-              ></iframe>
+              />
             ) : (
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+              <div className="w-full h-[315px] bg-gray-200 flex items-center justify-center text-gray-500">
                 Chargement...
               </div>
             )}
