@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import Userview from "../components/Userview";
 
 export default function Page() {
-  const videoUrls = [
+  const videoUrls: string[] = [
     "https://www.youtube.com/embed/5a5VSkkdpB4",
     "https://www.youtube.com/embed/m9Nkqm7FFgk",
     "https://www.youtube.com/embed/fgFM6f50bZo",
@@ -19,19 +19,24 @@ export default function Page() {
     "https://www.youtube.com/embed/AjxbqKcPX_4",
   ];
 
-  const [visibleVideos, setVisibleVideos] = useState([]);
-  const refs = useRef([]);
+  // ✅ State typé et refs typées
+  const [visibleVideos, setVisibleVideos] = useState<number[]>([]);
+  const refs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // IntersectionObserver pour charger au scroll
+  // IntersectionObserver pour charger les vidéos au scroll
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            const index = Number(entry.target.dataset.index);
+            const target = entry.target as HTMLElement; // ✅ cast pour dataset
+            const index = Number(target.dataset.index);
+
             setVisibleVideos((prev) =>
               prev.includes(index) ? prev : [...prev, index]
             );
+
+            observer.unobserve(target); // optionnel pour améliorer la perf
           }
         });
       },
@@ -47,7 +52,7 @@ export default function Page() {
 
   return (
     <Userview>
-      <h1 className="bg-amber-800 font-bold text-5xl flex justify-center text-white p-5">
+      <h1 className="bg-amber-800 font-bold text-5xl flex justify-center text-white p-5 mb-7">
         Motivations Lyrics
       </h1>
 
@@ -55,7 +60,7 @@ export default function Page() {
         {videoUrls.map((url, index) => (
           <div
             key={index}
-            ref={(el) => (refs.current[index] = el)}
+            ref={(el) => { refs.current[index] = el }} // ✅ retourne void
             data-index={index}
             className="mb-5 min-h-[315px] relative"
           >
@@ -65,10 +70,11 @@ export default function Page() {
                 height="315"
                 src={url}
                 className="rounded-lg shadow-md w-full"
+                loading="lazy"
                 allowFullScreen
-              ></iframe>
+              />
             ) : (
-              <div className="w-full h-full bg-gray-200 flex items-center justify-center text-gray-500">
+              <div className="w-full h-[315px] bg-gray-200 flex items-center justify-center text-gray-500">
                 Chargement...
               </div>
             )}
