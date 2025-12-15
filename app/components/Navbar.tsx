@@ -16,23 +16,21 @@ const Navbar = () => {
     { name: "Lyrics", href: "/lyrics" },
     { name: "Motivation", href: "/motivation" },
     { name: "Profile", href: "/profile" },
-    { name:"Don", href:"/don"},
+    { name: "Don", href: "/don" },
   ];
 
   return (
     <nav className="bg-amber-800 bg-[url('/images/grid.svg')] bg-repeat p-4 flex flex-col md:flex-row items-center justify-between relative">
       {/* Logo + Titre */}
       <div className="flex items-center gap-3 w-full md:w-auto justify-between">
-        <div className="relative w-22 h-15">
+        <div className="relative w-24 h-18 ">
           <Image
-            src="/images/logo.png
-            "
+            src="/images/logo.png"
             alt="ALLFENG"
             fill
-            className="object-cover"
+            className="object-contain"
           />
         </div>
-        {/* <span className="font-bold text-xl text-white hidden md:inline">ALLFENG</span> */}
 
         {/* Burger button mobile */}
         <button
@@ -79,7 +77,6 @@ const Navbar = () => {
           alt="France Flag"
         />
       </div>
-
       {/* Menu mobile */}
       {isOpen && (
         <div className="w-full bg-yellow-600 flex flex-col items-center gap-4 py-4 md:hidden mt-2 rounded-lg">
