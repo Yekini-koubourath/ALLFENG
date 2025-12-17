@@ -190,13 +190,14 @@ export default function QuizPage() {
     }
   };
 
-  return (
+  return (      
     <Userview>
-      <div className="flex flex-col items-center justify-center text-center gap-6">
-        <h1 className="chocolate-font font-bold text-4xl text-yellow-600 mt-10 mb-6">
-          Quiz Anglais
+       <h1 className="chocolate-font w-full bg-amber-800 font-bold text-5xl text-white pb-4 text-center">
+         English quiz
         </h1>
-
+<p className="text-white bg-amber-800 mb-6 w-full text-center pb-4">Défiez-vous et améliorez votre anglais chaque jour.</p>
+      <div className="flex flex-col items-center text-center gap-6">
+       
         {showBatchScore ? (
           <div className="flex flex-col items-center gap-4">
             <h2 className="chocolate-font text-2xl font-semibold">
@@ -232,7 +233,6 @@ export default function QuizPage() {
                 );
               })}
             </div>
-            // <Chatbot /> 
           )
         )}
       </div>

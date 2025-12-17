@@ -71,10 +71,10 @@ export default function Page() {
 
   return (
     <Userview>
-      <h1 className="bg-amber-800 text-white text-5xl font-bold text-center p-5 mb-10">
-        English Lyrics
+      <h1 className="bg-amber-800 text-white text-5xl font-bold text-center p-5">
+       song lyrics
       </h1>
-
+<p className="text-center bg-amber-800 text-white pb-7">Chantez, écoutez et progressez en anglais facilement.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-10">
         {videoUrls.map((url, i) => (
           <div

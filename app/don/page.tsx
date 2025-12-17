@@ -3,18 +3,18 @@ import Userview from "../components/Userview";
 
 export default function DonatePage() {
   return (
-    <Userview className="min-h-screen flex flex-col bg-gradient-to-b from-amber-50 to-white">
+    <Userview className="min-h-screen flex flex-col ">
       {/* Navbar reste en haut si tu en as une */}
       <header>
         {/* ton code de navbar ici */}
       </header>
-
-      {/* Contenu principal centré */}
-      <main className="flex-grow flex items-center justify-center mt-24">
-        <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-6 text-center">
-          <h1 className="text-3xl font-bold text-amber-700 mb-4">
+<h1 className="text-5xl font-bold text-white text-center bg-amber-800 pb-7">
             Soutenez mon projet 🎓
           </h1>
+      {/* Contenu principal centré */}
+      <main className="flex-grow flex items-center justify-center mt-15">
+        <div className="max-w-md w-full bg-white shadow-lg rounded-xl p-6 text-center">
+          
 
           <p className="text-gray-700 mb-6">
            Vous aimez le projet et souhaitez contribuer à son évolution ?
