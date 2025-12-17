@@ -52,8 +52,8 @@ export default function Page() {
 
   return (
     <Userview>
-      <h1 className="bg-amber-800 font-bold text-5xl flex justify-center text-white p-5">
-       motivational lyrics
+      <h1 className="bg-amber-800 font-bold flex justify-center text-white p-5 text-center sm:text-3xl md:text-5xl font-bold">
+        MOTIVATIONAL LYRICS
       </h1>
 <p className="text-white bg-amber-800 mb-6 w-full text-center pb-4 mb-7">Discours motivants pour booster votre apprentissage.</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-7">

@@ -193,7 +193,7 @@ export default function QuizPage() {
   return (      
     <Userview>
        <h1 className="chocolate-font w-full bg-amber-800 font-bold text-5xl text-white pb-4 text-center">
-         English quiz
+        ENGLISH QUIZ
         </h1>
 <p className="text-white bg-amber-800 mb-6 w-full text-center pb-4">Défiez-vous et améliorez votre anglais chaque jour.</p>
       <div className="flex flex-col items-center text-center gap-6">

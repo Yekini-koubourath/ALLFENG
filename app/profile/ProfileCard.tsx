@@ -17,7 +17,7 @@ export default function ProfileCard() {
 
   return (
     <div>
-              <div className="bg-amber-800 text-white text-center font-bold text-5xl pb-7">Qui suis-je?</div>
+              <div className="bg-amber-800 text-white text-center font-bold text-5xl pb-7">A PROPOS DE MOI</div>
       <div className="max-w-sm bg-white p-6 rounded-xl shadow-md mx-auto mt-12 mb-12 text-center">
 
         {/* Photo */}

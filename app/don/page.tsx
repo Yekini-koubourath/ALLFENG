@@ -9,7 +9,7 @@ export default function DonatePage() {
         {/* ton code de navbar ici */}
       </header>
 <h1 className="text-5xl font-bold text-white text-center bg-amber-800 pb-7">
-            Soutenez mon projet 🎓
+      SOUTENEZ MON PROJET 🎓
           </h1>
       {/* Contenu principal centré */}
       <main className="flex-grow flex items-center justify-center mt-15">
