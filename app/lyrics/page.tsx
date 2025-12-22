@@ -4,40 +4,41 @@ import React, { useState, useRef, useEffect } from "react";
 import Userview from "../components/Userview";
 
 export default function Page() {
+  // Liste des vidéos avec options pour cacher les suggestions et montrer les contrôles
   const videoUrls: string[] = [
-    "https://www.youtube.com/embed/P0Qa3duVhOs",
-    "https://www.youtube.com/embed/GgASxM_Ju_c",
-    "https://www.youtube.com/embed/2rr_mS_Lpo0",
-    "https://www.youtube.com/embed/eFDZOoVB2Ek",
-    "https://www.youtube.com/embed/cMYYpvXPLkE",
-    "https://www.youtube.com/embed/HyD5D70ohew",
-    "https://www.youtube.com/embed/CxUOl1I3w0E",
-    "https://www.youtube.com/embed/SKM3A0uJYlI",
-    "https://www.youtube.com/embed/Ytn9LbUAhxs",
-    "https://www.youtube.com/embed/K_iH2YSaY3U",
-    "https://www.youtube.com/embed/_IqI2bf9CCQ",
-    "https://www.youtube.com/embed/lgM0jMqAVPM",
-    "https://www.youtube.com/embed/Wc-VoftQQUs",
-    "https://www.youtube.com/embed/0jJmzo9JyzI",
-    "https://www.youtube.com/embed/KUeGr9rzP_Y",
-    "https://www.youtube.com/embed/b4o0_x3mIbo",
-    "https://www.youtube.com/embed/aWIWe7alFno",
-    "https://www.youtube.com/embed/NKfXFqOvKbY",
-    "https://www.youtube.com/embed/tDcO59ITTV0",
-    "https://www.youtube.com/embed/5gg17XXXiNo",
-    "https://www.youtube.com/embed/aooeDr13d9g",
-    "https://www.youtube.com/embed/rExJ6j5OeCo",
-    "https://www.youtube.com/embed/tMpgzYUoVDE",
-    "https://www.youtube.com/embed/8VD9Bmo2Yuc",
-    "https://www.youtube.com/embed/qm-QoJcra8U",
-    "https://www.youtube.com/embed/m_uWS6K-VF8",
-    "https://www.youtube.com/embed/p-JNeYeOgpA",
-    "https://www.youtube.com/embed/8t726dPkr70",
-    "https://www.youtube.com/embed/GSckfkuYQRw",
-    "https://www.youtube.com/embed/-xrecZrxg40",
-    "https://www.youtube.com/embed/ErGZkggRgaw",
-    "https://www.youtube.com/embed/SqBHVlQUqQk",
-    "https://www.youtube.com/embed/0Y6Om-xYC0k",
+    "https://www.youtube.com/embed/P0Qa3duVhOs?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/GgASxM_Ju_c?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/2rr_mS_Lpo0?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/eFDZOoVB2Ek?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/cMYYpvXPLkE?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/HyD5D70ohew?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/CxUOl1I3w0E?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/SKM3A0uJYlI?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/Ytn9LbUAhxs?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/K_iH2YSaY3U?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/_IqI2bf9CCQ?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/lgM0jMqAVPM?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/Wc-VoftQQUs?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/0jJmzo9JyzI?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/KUeGr9rzP_Y?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/b4o0_x3mIbo?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/aWIWe7alFno?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/NKfXFqOvKbY?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/tDcO59ITTV0?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/5gg17XXXiNo?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/aooeDr13d9g?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/rExJ6j5OeCo?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/tMpgzYUoVDE?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/8VD9Bmo2Yuc?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/qm-QoJcra8U?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/m_uWS6K-VF8?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/p-JNeYeOgpA?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/8t726dPkr70?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/GSckfkuYQRw?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/-xrecZrxg40?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/ErGZkggRgaw?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/SqBHVlQUqQk?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1",
+    "https://www.youtube.com/embed/0Y6Om-xYC0k?controls=1&modestbranding=1&rel=0&iv_load_policy=3&disablekb=1"
   ];
 
   const [visibleVideos, setVisibleVideos] = useState<number[]>([]);
@@ -55,7 +56,7 @@ export default function Page() {
               prev.includes(index) ? prev : [...prev, index]
             );
 
-            observer.unobserve(target); // libère l'observation pour éviter les recalculs
+            observer.unobserve(target);
           }
         });
       },
@@ -72,24 +73,27 @@ export default function Page() {
   return (
     <Userview>
       <h1 className="bg-amber-800 text-white text-5xl font-bold text-center p-5">
-       SONG LYRICS
+        SONG LYRICS
       </h1>
-<p className="text-center bg-amber-800 text-white pb-7">Chantez, écoutez et progressez en anglais facilement.</p>
+      <p className="text-center bg-amber-800 text-white pb-7">
+        Chantez, écoutez et progressez en anglais facilement.
+      </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 p-4 mb-10">
         {videoUrls.map((url, i) => (
           <div
             key={i}
-            ref={(el) => { refs.current[i] = el }} // ✅ fonction retourne void
+            ref={(el) => {
+              refs.current[i] = el;
+            }}
             data-index={i}
-            className="min-h-[315px]"
+            className="min-h-[315px] rounded-lg overflow-hidden shadow-md"
           >
             {visibleVideos.includes(i) ? (
               <iframe
-                src={url}
+                src={url} // ✅ les vidéos ne montreront plus les suggestions à la fin
                 width="100%"
                 height="315"
                 className="rounded-lg shadow-md"
-                loading="lazy"
                 allowFullScreen
               />
             ) : (

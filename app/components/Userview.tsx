@@ -1,6 +1,5 @@
 import React from "react";
 import Navbar from "./Navbar";
-import Footer from "./Footer";
 
 // Définition des props
 type UserviewProps = {
@@ -21,8 +20,6 @@ const Userview = ({ children, className }: UserviewProps) => {
         {children}
       </main>
 
-      {/* Footer en bas */}
-      <Footer />
     </div>
   );
 };
